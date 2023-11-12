@@ -1,3 +1,4 @@
+import 'package:excelsior_admin/Sales/core/sales_core.dart';
 import 'package:excelsior_admin/screen_index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class InterfaceIdentifierServices with ChangeNotifier {
       switch (prefs.getString('userType')) {
         case 'Sales':
           await authProvider.staffAuth(email, secret);
-          return Future.value(const SalesScreen());
+          return Future.value(const SalesCore());
         case 'IT':
           await authProvider.staffAuth(email, secret);
           return Future.value(const InformationTechnologyScreen());

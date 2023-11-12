@@ -22,13 +22,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthenticationServices()),
         ChangeNotifierProvider(create: (_) => InterfaceIdentifierServices()),
-        ChangeNotifierProvider(create: (_) => ThemeModeServices()),
-        ChangeNotifierProvider(create: (_) => SalesControllers()),
-        ChangeNotifierProvider(create: (_) => Styles()),
       ],
       builder: (context, _) {
-        final themeNotifier = context.watch<ThemeModeServices>();
-        final themeConstants = context.watch<Styles>();
         final interface = Provider.of<InterfaceIdentifierServices>(context, listen: false);
 
         return ScreenUtilInit(
@@ -39,10 +34,6 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Excelsior',
-              themeMode: themeNotifier.selectedTheme,
-              theme: themeNotifier.selectedTheme == ThemeMode.light
-                  ? themeConstants.lightTheme
-                  : themeConstants.darkTheme,
               home: Builder(
                 builder: (context) {
                   return EasySplashScreen(
