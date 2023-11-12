@@ -83,7 +83,17 @@ class NewContractControllers with ChangeNotifier {
     notifyListeners();
   }
 
-  void setCarResultsControllers(String id, String make, String model, String plates, num price, num year) {}
+  void setCarResultsControllers(
+      String id, String make, String model, String plates, num price, num year, String color) {
+    _vehicleColorController.text = color;
+    _vehicleIDController.text = id;
+    _vehicleMakeController.text = make;
+    _vehicleModelController.text = model;
+    _vehiclePriceController.text = price.toString();
+    _vehicleYearController.text = year.toString();
+    _licensePlateController.text = plates;
+    notifyListeners();
+  }
 
   Future searchForCustomer(String searchText) async {
     _customerSearchResults.clear();
@@ -145,6 +155,18 @@ class NewContractControllers with ChangeNotifier {
     _pidController.clear();
     _phoneController.clear();
     _customerID.clear();
+    notifyListeners();
+  }
+
+  void resetCarControllers() {
+    _carResultController.clear();
+    _licensePlateController.clear();
+    _vehicleColorController.clear();
+    _vehicleIDController.clear();
+    _vehicleMakeController.clear();
+    _vehicleModelController.clear();
+    _vehiclePriceController.clear();
+    _vehicleYearController.clear();
     notifyListeners();
   }
 }

@@ -35,15 +35,26 @@ class NewContractTab extends StatelessWidget {
               );
             case 1:
               return Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (details.currentStep != 0) {
+                          provider.changeContractStep(details.stepIndex - 1);
+                        }
+                      },
                       child: Text(
                         'Back',
                         style: context.displayMedium,
                       )),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: provider.carResultController.text.isEmpty
+                          ? null
+                          : () {
+                              if (provider.resultController.text.isNotEmpty) {
+                                provider.changeContractStep(details.stepIndex + 1);
+                              }
+                            },
                       child: Text(
                         'Next',
                         style: context.displayMedium,
@@ -52,9 +63,14 @@ class NewContractTab extends StatelessWidget {
               );
             case 2:
               return Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (details.currentStep != 0) {
+                          provider.changeContractStep(details.stepIndex - 1);
+                        }
+                      },
                       child: Text(
                         'Back',
                         style: context.displayMedium,
@@ -69,9 +85,14 @@ class NewContractTab extends StatelessWidget {
               );
             case 3:
               return Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (details.currentStep != 0) {
+                          provider.changeContractStep(details.stepIndex - 1);
+                        }
+                      },
                       child: Text(
                         'Back',
                         style: context.displayMedium,
@@ -79,7 +100,7 @@ class NewContractTab extends StatelessWidget {
                   TextButton(
                       onPressed: () {},
                       child: Text(
-                        'Next',
+                        'Issue Contract',
                         style: context.displayMedium,
                       )),
                 ],
@@ -114,7 +135,7 @@ class NewContractTab extends StatelessWidget {
                       ? StepState.complete
                       : StepState.indexed,
               isActive: provider.contractStep == 2,
-              title: const Text('Payment Information'),
+              title: const Text('Lease Duration & Payment'),
               content: const SizedBox()),
           Step(
               state: provider.contractStep == 3

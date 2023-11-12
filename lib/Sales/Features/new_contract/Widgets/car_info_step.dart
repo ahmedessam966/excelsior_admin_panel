@@ -64,12 +64,12 @@ class CarInfoStep extends StatelessWidget {
           }),
           onSuggestionSelected: (suggestion) {
             provider.setCarResultController(suggestion);
-            // for (var child in provider.carSearchResults) {
-            //   if (child.model == suggestion) {
-            //     provider.setResults(
-            //         child.name, child.phone, child.address, child.pidNumber, child.customerID);
-            //   }
-            // }
+            for (var child in provider.carSearchResults) {
+              if (child.model == suggestion || child.make == suggestion) {
+                provider.setCarResultsControllers(child.carID, child.make, child.model, '${child.plates}',
+                    child.pricePerDay, child.year, child.color);
+              }
+            }
           },
           itemBuilder: (context, suggestion) {
             String make = '';
@@ -124,6 +124,67 @@ class CarInfoStep extends StatelessWidget {
             );
           }
         }),
+        SizedBox(
+          height: 10.h,
+        ),
+        Builder(builder: (context) {
+          if (provider.carResultController.text.isEmpty) {
+            return FadeOut(
+              duration: const Duration(seconds: 1),
+              child: const SizedBox.shrink(),
+            );
+          } else {
+            return FadeIn(
+              animate: true,
+              duration: const Duration(seconds: 1),
+              child: Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(controller: provider.vehicleMakeController, title: 'Make')),
+                  const Spacer(),
+                  Expanded(
+                      flex: 4,
+                      child:
+                          InfoTextFieldWidget(controller: provider.vehicelModelController, title: 'Model')),
+                ],
+              ),
+            );
+          }
+        }),
+        SizedBox(
+          height: 10.h,
+        ),
+        Builder(builder: (context) {
+          if (provider.carResultController.text.isEmpty) {
+            return FadeOut(
+              duration: const Duration(seconds: 1),
+              child: const SizedBox.shrink(),
+            );
+          } else {
+            return FadeIn(
+              animate: true,
+              duration: const Duration(seconds: 1),
+              child: Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(
+                          controller: provider.vehicleColorController, title: 'Vehicle Color')),
+                  const Spacer(),
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(controller: provider.vehicleYearController, title: 'Year')),
+                ],
+              ),
+            );
+          }
+        }),
+        SizedBox(
+          height: 10.h,
+        ),
       ],
     );
   }
