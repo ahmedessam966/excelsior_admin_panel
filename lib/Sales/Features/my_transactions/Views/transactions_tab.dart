@@ -1,16 +1,15 @@
+import 'package:excelsior_admin/Sales/Features/my_transactions/Controllers/sales_transactions_controller.dart';
 import 'package:excelsior_admin/Sales/Features/my_transactions/Widgets/overview_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
-import '../../../Controllers/sales_controllers.dart';
 
 class TransactionsTab extends StatelessWidget {
   const TransactionsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SalesControllers>(builder: (context, provider, _) {
+    return Consumer<SalesTransactionsController>(builder: (context, provider, _) {
       return FutureBuilder(
         future: provider.getAgentSales(context),
         builder: (context, snapshot) {

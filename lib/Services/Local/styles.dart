@@ -6,50 +6,54 @@ class Styles with ChangeNotifier {
   Styles();
 
   ThemeData get lightTheme => ThemeData(
-      useMaterial3: true,
-      scaffoldBackgroundColor: const Color(0xaaf5f5f5).withOpacity(1),
-      textTheme: TextTheme(
-        titleLarge: GoogleFonts.assistant(fontSize: 10.sp, fontWeight: FontWeight.w600),
-        titleMedium: GoogleFonts.assistant(fontSize: 8.sp, fontWeight: FontWeight.w500),
-        titleSmall: GoogleFonts.assistant(fontSize: 6.sp, fontWeight: FontWeight.w500),
-        labelLarge: GoogleFonts.exo(fontSize: 10.sp, fontWeight: FontWeight.w600),
-        labelMedium: GoogleFonts.exo(fontSize: 8.sp, fontWeight: FontWeight.w600),
-        labelSmall: GoogleFonts.exo(fontSize: 6.sp, fontWeight: FontWeight.w600),
-        displaySmall: GoogleFonts.assistant(fontSize: 4.sp, fontWeight: FontWeight.w500),
-        displayMedium: GoogleFonts.assistant(fontSize: 6.sp, fontWeight: FontWeight.w500),
-        displayLarge: GoogleFonts.assistant(fontSize: 8.sp, fontWeight: FontWeight.w500),
-      ),
-
-      ///
-      searchBarTheme: SearchBarThemeData(
-          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.r),
-          )),
-          backgroundColor: const MaterialStatePropertyAll(Colors.white)),
-
-      ///
-      elevatedButtonTheme: const ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(LightColorPalette.darkest),
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xaaf5f5f5).withOpacity(1),
+        colorScheme: const ColorScheme.light(primary: LightColorPalette.darkest),
+        textTheme: TextTheme(
+          titleLarge: GoogleFonts.assistant(fontSize: 10.sp, fontWeight: FontWeight.w600),
+          titleMedium: GoogleFonts.assistant(fontSize: 8.sp, fontWeight: FontWeight.w500),
+          titleSmall: GoogleFonts.assistant(fontSize: 6.sp, fontWeight: FontWeight.w500),
+          labelLarge: GoogleFonts.exo(fontSize: 10.sp, fontWeight: FontWeight.w600),
+          labelMedium: GoogleFonts.exo(fontSize: 8.sp, fontWeight: FontWeight.w600),
+          labelSmall: GoogleFonts.exo(fontSize: 6.sp, fontWeight: FontWeight.w600),
+          displaySmall: GoogleFonts.assistant(fontSize: 4.sp, fontWeight: FontWeight.w500),
+          displayMedium: GoogleFonts.assistant(fontSize: 6.sp, fontWeight: FontWeight.w500),
+          displayLarge: GoogleFonts.assistant(fontSize: 8.sp, fontWeight: FontWeight.w500),
         ),
-      ),
 
-      ///
-      inputDecorationTheme: InputDecorationTheme(
-        focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.red)),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.black)),
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.red)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.black)),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
+        ///
+        searchBarTheme: SearchBarThemeData(
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.r),
+            )),
+            backgroundColor: const MaterialStatePropertyAll(Colors.white)),
 
-      ///
-      textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: Colors.black, selectionColor: Colors.grey, selectionHandleColor: Colors.green));
+        ///
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(LightColorPalette.darkest),
+          ),
+        ),
+
+        ///
+        inputDecorationTheme: InputDecorationTheme(
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.red)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.black)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.red)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r), borderSide: const BorderSide(color: Colors.black)),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+        ),
+
+        ///
+        textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Colors.black, selectionColor: Colors.grey, selectionHandleColor: Colors.green),
+
+        ///
+      );
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///

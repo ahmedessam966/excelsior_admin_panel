@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       ],
       builder: (context, _) {
         final interface = Provider.of<InterfaceIdentifierServices>(context, listen: false);
-
         return ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,

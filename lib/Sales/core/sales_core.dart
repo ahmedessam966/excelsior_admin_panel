@@ -1,9 +1,8 @@
 import 'package:excelsior_admin/Sales/Features/dashboard/Views/sales_screen.dart';
+import 'package:excelsior_admin/Sales/core/providers.dart';
 import 'package:excelsior_admin/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../Controllers/sales_controllers.dart';
 
 class SalesCore extends StatelessWidget {
   const SalesCore({super.key});
@@ -14,6 +13,9 @@ class SalesCore extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeModeServices()),
         ChangeNotifierProvider(create: (_) => SalesControllers()),
+        ChangeNotifierProvider(create: (_) => SalesDashboardControllers()),
+        ChangeNotifierProvider(create: (_) => NewContractControllers()),
+        ChangeNotifierProvider(create: (_) => SalesTransactionsController()),
         ChangeNotifierProvider(create: (_) => Styles()),
       ],
       builder: (context, child) {
