@@ -19,11 +19,14 @@ class NewContractTab extends StatelessWidget {
               return Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    if (provider.resultController.text.isNotEmpty) {
-                      provider.changeContractStep(details.stepIndex + 1);
-                    }
-                  },
+                  style: const ButtonStyle(enableFeedback: true),
+                  onPressed: provider.resultController.text.isEmpty
+                      ? null
+                      : () {
+                          if (provider.resultController.text.isNotEmpty) {
+                            provider.changeContractStep(details.stepIndex + 1);
+                          }
+                        },
                   child: Text(
                     'Next',
                     style: context.displayMedium,

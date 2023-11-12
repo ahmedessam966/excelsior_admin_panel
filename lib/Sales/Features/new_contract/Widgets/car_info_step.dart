@@ -112,12 +112,13 @@ class CarInfoStep extends StatelessWidget {
                 children: [
                   Expanded(
                       flex: 4,
-                      child: InfoTextFieldWidget(controller: provider.customerID, title: 'Vehicle ID')),
+                      child:
+                          InfoTextFieldWidget(controller: provider.vehicleIDController, title: 'Vehicle ID')),
                   const Spacer(),
                   Expanded(
                       flex: 4,
-                      child:
-                          InfoTextFieldWidget(controller: provider.pidController, title: 'License Plates')),
+                      child: InfoTextFieldWidget(
+                          controller: provider.licensePlateController, title: 'License Plates')),
                 ],
               ),
             );

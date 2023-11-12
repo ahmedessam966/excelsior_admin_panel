@@ -38,6 +38,27 @@ class NewContractControllers with ChangeNotifier {
   final TextEditingController _addressController = TextEditingController();
   TextEditingController get addressController => _addressController;
 
+  final TextEditingController _vehicleIDController = TextEditingController();
+  TextEditingController get vehicleIDController => _vehicleIDController;
+
+  final TextEditingController _licensePlateController = TextEditingController();
+  TextEditingController get licensePlateController => _licensePlateController;
+
+  final TextEditingController _vehicleMakeController = TextEditingController();
+  TextEditingController get vehicleMakeController => _vehicleMakeController;
+
+  final TextEditingController _vehicleModelController = TextEditingController();
+  TextEditingController get vehicelModelController => _vehicleModelController;
+
+  final TextEditingController _vehicleYearController = TextEditingController();
+  TextEditingController get vehicleYearController => _vehicleYearController;
+
+  final TextEditingController _vehicleColorController = TextEditingController();
+  TextEditingController get vehicleColorController => _vehicleColorController;
+
+  final TextEditingController _vehiclePriceController = TextEditingController();
+  TextEditingController get vehiclePriceController => _vehiclePriceController;
+
   void changeContractStep(int newValue) {
     _contractStep = newValue;
     notifyListeners();
@@ -61,6 +82,8 @@ class NewContractControllers with ChangeNotifier {
     _customerID.text = id;
     notifyListeners();
   }
+
+  void setCarResultsControllers(String id, String make, String model, String plates, num price, num year) {}
 
   Future searchForCustomer(String searchText) async {
     _customerSearchResults.clear();
