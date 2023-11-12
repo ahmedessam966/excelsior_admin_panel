@@ -1,0 +1,11 @@
+export 'package:excelsior_admin/Accounting/Views/accounting_screen.dart';
+export 'package:excelsior_admin/Facilities/Views/facilities_screen.dart';
+export 'package:excelsior_admin/HR/Views/hr_screen.dart';
+export 'package:excelsior_admin/IT/Views/it_screen.dart';
+export 'package:excelsior_admin/Legal/Views/legal_screen.dart';
+export 'package:excelsior_admin/Login/Views/login_screen.dart';
+export 'package:excelsior_admin/Management/Views/management_screen.dart';
+export 'package:excelsior_admin/Marketing/Views/marketing_screen.dart';
+export 'package:excelsior_admin/PR/Views/pr_screen.dart';
+export 'package:excelsior_admin/Procurements/Views/procurements_screen.dart';
+export 'package:excelsior_admin/Sales/Features/dashboard/Views/sales_screen.dart';
