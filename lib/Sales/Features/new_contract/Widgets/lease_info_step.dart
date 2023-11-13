@@ -69,9 +69,9 @@ class LeaseInfoStep extends StatelessWidget {
                 }
               }),
               onSuggestionSelected: (suggestion) {
-                provider.setResultController(suggestion);
                 for (var child in provider.customerSearchResults) {
                   if (child.email == suggestion) {
+                    provider.setResultController(suggestion, child.customerID);
                     provider.setResults(
                         child.name, child.phone, child.address, child.pidNumber, child.customerID);
                   }
@@ -190,7 +190,8 @@ class LeaseInfoStep extends StatelessWidget {
               child: InfoTextFieldWidget(controller: provider.addressController, title: 'Address'),
             );
           } else {
-            return FadeOut(duration: const Duration(seconds: 1), child: const SizedBox.shrink());
+            return FadeOut(
+                animate: true, duration: const Duration(seconds: 1), child: const SizedBox.shrink());
           }
         }),
         SizedBox(

@@ -44,7 +44,7 @@ class CarInfoStep extends StatelessWidget {
             onChanged: (value) {
               if (value.isEmpty) {
                 provider.carSearchResults.clear();
-                // provider.resetInfoControllers();
+                provider.resetCarControllers();
               }
               provider.searchForCar(value);
             },
@@ -63,11 +63,20 @@ class CarInfoStep extends StatelessWidget {
             }
           }),
           onSuggestionSelected: (suggestion) {
-            provider.setCarResultController(suggestion);
             for (var child in provider.carSearchResults) {
               if (child.model == suggestion || child.make == suggestion) {
-                provider.setCarResultsControllers(child.carID, child.make, child.model, '${child.plates}',
-                    child.pricePerDay, child.year, child.color);
+                provider.setCarResultController(suggestion, child.carID);
+                provider.setCarResultsControllers(
+                    child.carID,
+                    child.make,
+                    child.model,
+                    '${child.plates}',
+                    child.pricePerDay,
+                    child.year,
+                    child.latestKM,
+                    child.pricePerExtraKM,
+                    child.tier,
+                    child.color);
               }
             }
           },
@@ -100,6 +109,7 @@ class CarInfoStep extends StatelessWidget {
         Builder(builder: (context) {
           if (provider.carResultController.text.isEmpty) {
             return FadeOut(
+              animate: true,
               duration: const Duration(seconds: 1),
               child: const SizedBox.shrink(),
             );
@@ -130,11 +140,13 @@ class CarInfoStep extends StatelessWidget {
         Builder(builder: (context) {
           if (provider.carResultController.text.isEmpty) {
             return FadeOut(
+              animate: true,
               duration: const Duration(seconds: 1),
               child: const SizedBox.shrink(),
             );
           } else {
             return FadeIn(
+              delay: const Duration(microseconds: 500),
               animate: true,
               duration: const Duration(seconds: 1),
               child: Flex(
@@ -159,11 +171,13 @@ class CarInfoStep extends StatelessWidget {
         Builder(builder: (context) {
           if (provider.carResultController.text.isEmpty) {
             return FadeOut(
+              animate: true,
               duration: const Duration(seconds: 1),
               child: const SizedBox.shrink(),
             );
           } else {
             return FadeIn(
+              delay: const Duration(microseconds: 800),
               animate: true,
               duration: const Duration(seconds: 1),
               child: Flex(
@@ -173,6 +187,48 @@ class CarInfoStep extends StatelessWidget {
                       flex: 4,
                       child: InfoTextFieldWidget(
                           controller: provider.vehicleColorController, title: 'Vehicle Color')),
+                  const Spacer(),
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(
+                          controller: provider.vehicleTierController, title: 'Class/Tier')),
+                ],
+              ),
+            );
+          }
+        }),
+        SizedBox(
+          height: 10.h,
+        ),
+        Builder(builder: (context) {
+          if (provider.carResultController.text.isEmpty) {
+            return FadeOut(
+              animate: true,
+              duration: const Duration(seconds: 1),
+              child: const SizedBox.shrink(),
+            );
+          } else {
+            return FadeIn(
+              delay: const Duration(microseconds: 500),
+              animate: true,
+              duration: const Duration(seconds: 1),
+              child: Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(
+                          controller: provider.vehiclePriceController, title: 'Price/Day')),
+                  const Spacer(),
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(
+                          controller: provider.vehicleExtraKMController, title: 'Price/Extra KM')),
+                  const Spacer(),
+                  Expanded(
+                      flex: 4,
+                      child: InfoTextFieldWidget(
+                          controller: provider.odometerController, title: 'Current Odometer')),
                   const Spacer(),
                   Expanded(
                       flex: 4,

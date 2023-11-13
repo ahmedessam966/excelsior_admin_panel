@@ -18,23 +18,24 @@ class CarModel {
   final String? image;
   final Map? specs;
 
-  CarModel(
-      {required this.carID,
-      required this.make,
-      required this.model,
-      required this.color,
-      required this.tier,
-      required this.year,
-      required this.rating,
-      required this.bestSeller,
-      this.latestKM,
-      required this.pricePerDay,
-      this.pricePerExtraKM,
-      this.plates,
-      this.chassis,
-      this.isRented,
-      this.branchName,
-      this.branchCoords,
-      this.image,
-      this.specs});
+  CarModel({
+    required this.carID,
+    required this.make,
+    required this.model,
+    required this.color,
+    required this.tier,
+    required this.year,
+    required this.rating,
+    required this.bestSeller,
+    this.latestKM,
+    required this.pricePerDay,
+    this.pricePerExtraKM,
+    this.plates,
+    this.chassis,
+    this.isRented,
+    this.branchName,
+    this.branchCoords,
+    this.image,
+    this.specs,
+  });
 }

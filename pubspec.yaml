@@ -34,8 +34,10 @@ dependencies:
   flutter_typeahead: ^4.8.0
   google_fonts: ^6.1.0
   intl: ^0.18.1
+  pdf: ^3.10.6
   permission_handler: ^11.0.1
   pocketbase: ^0.16.0
+  printing: ^5.11.1
   provider: ^6.1.0
   shared_preferences: ^2.2.2
 

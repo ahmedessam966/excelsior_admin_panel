@@ -1,6 +1,7 @@
 import 'package:excelsior_admin/Sales/Features/new_contract/Controllers/new_contract_controllers.dart';
 import 'package:excelsior_admin/Sales/Features/new_contract/Widgets/car_info_step.dart';
 import 'package:excelsior_admin/Sales/Features/new_contract/Widgets/lease_info_step.dart';
+import 'package:excelsior_admin/Sales/Features/new_contract/Widgets/payment_info_tab.dart';
 import 'package:excelsior_admin/Services/Local/text_variants_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -136,7 +137,7 @@ class NewContractTab extends StatelessWidget {
                       : StepState.indexed,
               isActive: provider.contractStep == 2,
               title: const Text('Lease Duration & Payment'),
-              content: const SizedBox()),
+              content: const PaymentInfoTab()),
           Step(
               state: provider.contractStep == 3
                   ? StepState.indexed
